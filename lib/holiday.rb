@@ -55,7 +55,20 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-
+  holiday_hash.each do |season, values|
+    puts "#{season.capitalize}:"
+    values.each do |key, attributes|
+      if key == :new_years
+        puts "  New Years: #{attributes.join(", ")}"
+      elsif key == :fourth_of_july
+        puts "  Fourth Of July: #{attributes.join(", ")}"
+      elsif key == :memorial_day
+        puts "  Memorial Day: #{attributes.join(", ")}"
+      else
+        puts "  #{key.capitalize}: #{attributes.join(", ")}"
+      end
+    end
+  end
 end
 
 def all_holidays_with_bbq(holiday_hash)
